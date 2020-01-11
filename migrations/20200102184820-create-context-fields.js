@@ -13,7 +13,7 @@ exports.up = function(db, cb) {
                     primaryKey: true,
                     notNull: true,
                 },
-                built_in: { type: 'int', defaultValue: 0 },
+                description: { type: 'text' },
                 sort_order: { type: 'int', defaultValue: 10 },
                 legal_values: { type: 'string', length: 255 },
                 created_at: { type: 'timestamp', defaultValue: 'now()' },
@@ -22,9 +22,9 @@ exports.up = function(db, cb) {
             db.runSql.bind(
                 db,
                 `
-        INSERT INTO context_fields(name, built_in, sort_order) VALUES('environment', 0, 0);
-        INSERT INTO context_fields(name, built_in, sort_order) VALUES('userId', 0, 1);
-        INSERT INTO context_fields(name, built_in, sort_order) VALUES('appName', 0, 2);
+        INSERT INTO context_fields(name, description, sort_order) VALUES('environment', 'Allows you to constrain on application environment', 0);
+        INSERT INTO context_fields(name, description, sort_order) VALUES('userId', 'Allows you to constrain on userId', 1);
+        INSERT INTO context_fields(name, description, sort_order) VALUES('appName', 'Allows you to constrain on application name', 2);
         `
             ),
         ],
