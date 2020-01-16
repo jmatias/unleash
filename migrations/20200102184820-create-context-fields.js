@@ -15,7 +15,7 @@ exports.up = function(db, cb) {
                 },
                 description: { type: 'text' },
                 sort_order: { type: 'int', defaultValue: 10 },
-                legal_values: { type: 'string', length: 255 },
+                legal_values: { type: 'text' },
                 created_at: { type: 'timestamp', defaultValue: 'now()' },
                 updated_at: { type: 'timestamp', defaultValue: 'now()' },
             }),
